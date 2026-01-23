@@ -4,14 +4,16 @@
 
   const dispatch = createEventDispatcher();
   export let interval;
+  export let isActive;
   export let display = true;
   export let text = "Interval";
 
   let intervalID = null;
 
-  if (interval > 0) {
+  if (interval > 0 && isActive) {
     intervalID = window.setInterval(() => { dispatch("trigger"); }, interval * 1000);
   }
+
   onDestroy(() => {
     if(intervalID) window.clearInterval(intervalID);
   });

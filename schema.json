@@ -23,6 +23,16 @@
         "defaultValue": true
       },
       {
+        "type": "boolean",
+        "key": "displayIcon",
+        "label": "Display Icon before text",
+        "defaultValue": true,
+        "dependsOn": {
+          "setting": "display",
+          "value": true
+        }
+      },
+      {
         "type": "text",
         "key": "text",
         "label": "Text to display",
@@ -38,6 +48,19 @@
         "label": "On interval"
       }
     ],
-    "info": "Experiencing bugs? Any feedback? visit: https://github.com/MartinPicc/budibase-interval-plugin/issues"
+    "context": [
+    {
+      "type": "static",
+      "values": [
+        {
+          "label": "Active State",
+          "key": "isActive",
+          "type": "boolean",
+          "defaultValue": true
+        }
+      ]
+    }
+    ],
+    "info": "Experiencing bugs? Any feedback? visit: https://github.com/esellier/budibase-interval-plugin/issues"
   }
 }

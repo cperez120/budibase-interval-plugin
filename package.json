@@ -1,6 +1,6 @@
 {
   "name": "Interval",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Set time interval to trigger actions.",
   "license": "MIT",
   "svelte": "index.js",

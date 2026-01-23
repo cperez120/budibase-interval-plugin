@@ -37,7 +37,7 @@
   $: if (!Number(interval) || Number(interval) <= 0) active = false;
 
   // ✅ EXPOSE ce que Budibase attend dans le context
-  $: activated = active;
+  $: activated = () => active;
 </script>
 
 <div use:styleable={$component.styles}>

@@ -3,8 +3,9 @@
   import Interval from "./lib/Interval.svelte";
   const { styleable } = getContext("sdk");
   const component = getContext("component");
-  export let isActive = true;
-  $: isActive = () => { return isActive===true };
+  export let isActive;
+  isActive=JSON.parse(isActive);
+  $: activated = () => { return isActive===true };
   export let trigger;
   export let interval;
   export let display;

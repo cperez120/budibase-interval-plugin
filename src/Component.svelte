@@ -7,14 +7,13 @@
   $: dataContext = {
   	isActive
   }
-
   export let trigger;
   export let interval;
   export let display;
   export let displayIcon;
   export let text;
-
-  if (!interval) isActive=false;
+  if (!interval) 
+	isActive=false;
 </script>
 
 <div use:styleable={$component.styles}>

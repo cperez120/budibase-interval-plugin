@@ -8,6 +8,7 @@
     "friendlyName": "Interval",
     "description": "Set time interval to refresh data provider automatically",
     "icon": "Stopwatch",
+    "hasChildren": true,
     "settings": [
       {
         "type": "boolean",

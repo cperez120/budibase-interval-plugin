@@ -6,6 +6,7 @@
   export let interval;
   export let isActive;
   export let display = true;
+  export let displayIcon = true;
   export let text = "Interval";
 
   let intervalID = null;
@@ -21,7 +22,9 @@
 
 {#if display}
   <div class="container">
+    {#if displayIcon}
     {@html stopwatchSvg} 
+    {/if}
     <span>{text}</span>
   </div>
 {/if}

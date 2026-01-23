@@ -10,6 +10,13 @@
     "icon": "Stopwatch",
     "settings": [
       {
+        "type": "boolean",
+        "key": "isActive",
+        "label": "is timer active ?",
+        "defaultValue": true,
+        "required": true
+      },
+      {
         "type": "number",
         "key": "interval",
         "label": "Interval (in seconds)",

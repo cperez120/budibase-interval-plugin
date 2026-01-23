@@ -3,10 +3,10 @@
   import Interval from "./lib/Interval.svelte";
   const { styleable } = getContext("sdk");
   const component = getContext("component");
-export let isActive = false;
-$: dataContext = {
-  isActive
-}
+  export let isActive = true;
+  $: dataContext = {
+  	isActive
+  }
 
   export let trigger;
   export let interval;

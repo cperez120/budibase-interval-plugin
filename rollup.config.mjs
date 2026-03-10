@@ -79,7 +79,7 @@ const validateSchema = () => ({
 
 export default {
   input: "index.js",
-  external: (id) => id === "svelte" || id.startsWith("svelte/"),
+  /* external: (id) => id === "svelte" || id.startsWith("svelte/"),/* removed by Carlos   */
   output: {
     sourcemap: process.env.ROLLUP_WATCH ? "inline" : false,
     format: "iife",
@@ -91,7 +91,7 @@ export default {
       if (id === "svelte/animate") return "svelteAnimate"
       if (id === "svelte/motion") return "svelteMotion"
       if (id === "svelte/easing") return "svelteEasing"
-      if (id.includes("/internal")) return "svelteInternal"
+      /*if (id.includes("/internal")) return "svelteInternal" /* removed by Carlos   */
       return "svelte"
     },
   },

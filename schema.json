@@ -10,9 +10,9 @@
     "icon": "Stopwatch",
     "settings": [
       {
-        "type": "text",
+        "type": "boolean",
         "key": "isActive",
-        "label": "is timer active ?",
+        "label": "Timer Active?",
         "defaultValue": true,
         "required": true
       },
@@ -20,6 +20,7 @@
         "type": "number",
         "key": "interval",
         "label": "Interval (in seconds)",
+        "defaultValue": 10,
         "min": 1,
         "required": true
       },
@@ -29,7 +30,7 @@
         "label": "Display component in frontend",
         "defaultValue": true
       },
-      {
+       {
         "type": "boolean",
         "key": "displayIcon",
         "label": "Display Icon before text",
@@ -54,20 +55,6 @@
         "key": "trigger",
         "label": "On interval"
       }
-    ],
-    "context": [
-    {
-      "type": "static",
-      "values": [
-        {
-          "label": "Actived",
-          "key": "activated",
-          "type": "boolean",
-          "defaultValue": true
-        }
-      ]
-    }
-    ],
-    "info": "Experiencing bugs? Any feedback? visit: https://github.com/esellier/budibase-interval-plugin/issues"
+    ]
   }
 }

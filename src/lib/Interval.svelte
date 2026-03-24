@@ -1,65 +1,23 @@
 <script>
-  import { createEventDispatcher, onDestroy } from "svelte";
-  import stopwatchSvg from "./icons/stopwatch.svg";
+  // Svelte 5 runes mode props
+  let {
+    isActive = true,
+    interval = 10,
+    trigger = undefined, // function callback from parent/budibase
+  } = $props();
 
-  const dispatch = createEventDispatcher();
-
-  export let interval;
-  export let isActive;
-  export let display = true;
-  export let displayIcon = true;
-  export let text = "Interval";
-
-  let intervalID = null;
-
-  // On mémorise le "dernier état effectif" appliqué
-  let lastActive = null;
-  let lastSeconds = null;
-
-  function stop() {
-    if (intervalID) {
-      clearInterval(intervalID);
-      intervalID = null;
-    }
-  }
-
-  function start(seconds) {
-    intervalID = setInterval(() => dispatch("trigger"), seconds * 1000);
-  }
-
-  $: {
+  $effect(() => {
     const seconds = Number(interval);
-    const active = (isActive === true) && (seconds > 0);
 
-    // do nothing is already active
-    if (active === lastActive && seconds === lastSeconds) {
-      // no-op
-    } else {
-      // apply the new value
-      stop();
-      if (active) start(seconds);
+    // Stop timer when inactive OR invalid interval
+    if (!isActive || !Number.isFinite(seconds) || seconds <= 0) return;
 
-      lastActive = active;
-      lastSeconds = seconds;
-    }
-  }
+    const id = window.setInterval(() => {
+      // Safely call callback if provided
+      trigger?.();
+    }, seconds * 1000);
 
-  onDestroy(stop);
+    // Cleanup on prop change/unmount
+    return () => window.clearInterval(id);
+  });
 </script>
-
-{#if display}
-  <div class="container">
-    {#if displayIcon}
-      {@html stopwatchSvg}
-    {/if}
-    <span>{text}</span>
-  </div>
-{/if}
-
-<style>
-  .container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-</style>

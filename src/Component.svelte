@@ -27,7 +27,7 @@
   />
 
   {#if display}
-    <div class="container">
+    <div class="intervalContainer">
       {#if displayIcon}
         {@html stopwatchSvg}
       {/if}
@@ -37,7 +37,7 @@
 </div>
 
 <style>
-  .container {
+  .intervalContainer {
     display: flex;
     align-items: center;
     gap: 5px;
